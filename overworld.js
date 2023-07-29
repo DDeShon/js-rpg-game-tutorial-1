@@ -12,11 +12,11 @@ class Overworld {
     };
     image.src = "/images/maps/DemoLower.png";
 
-    const x = 0;
-    const y = 0;
+    const x = 1;
+    const y = 4;
     const hero = new Image();
     hero.onload = () => {
-      this.ctx.drawImage(hero, 0, 0, 32, 32, x, y, 32, 32);
+      this.ctx.drawImage(hero, 0, 0, 32, 32, x * 16 - 8, y * 16 - 18, 32, 32);
     };
     hero.src = "/images/characters/people/hero.png";
   }
