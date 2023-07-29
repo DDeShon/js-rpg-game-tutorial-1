@@ -8,7 +8,7 @@ class Overworld {
   init() {
     const image = new Image();
     image.onload = () => {
-      this.ctx.drawImage();
+      this.ctx.drawImage(image, 0, 0);
     };
     image.src = "/images/maps/DemoLower.png";
   }
