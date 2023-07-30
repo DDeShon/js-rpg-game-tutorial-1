@@ -8,11 +8,15 @@ class Overworld {
 
   startGameLoop() {
     const step = () => {
+      // Clear the canvas
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
       // Draw Lower layer
       this.map.drawLowerImage(this.ctx);
 
       // Draw Game Objects
       Object.values(this.map.gameObjects).forEach((object) => {
+        object.x += 0.02;
         object.sprite.draw(this.ctx);
       });
 
@@ -27,7 +31,7 @@ class Overworld {
   }
 
   init() {
-    this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
+    this.map = new OverworldMap(window.OverworldMaps.Kitchen);
     this.startGameLoop();
   }
 }

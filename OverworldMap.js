@@ -42,7 +42,7 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new GameObject({
         x: 3,
-        y: 1,
+        y: 5,
       }),
 
       npcA: new GameObject({
