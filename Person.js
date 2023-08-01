@@ -1,7 +1,7 @@
 class Person extends GameObject {
   constructor(config) {
     super(config);
-    this.movingProgressRemaining = 0;
+    this.movingProgressRemaining = 32;
 
     this.directionUpdate = {
       up: ["y", -1],
