@@ -27,11 +27,34 @@ class Sprite {
         [0, 0],
       ],
     };
-    this.currentAnimation = config.currentAnimation || "idle-down";
+    this.currentAnimation = "walk-down"; //config.currentAnimation || "idle-down";
     this.currentAnimationFrame = 0;
+
+    this.animationFrameLimit = config.animationFrameLimit || 16;
+    this.animationFrameProgress = this.animationFrameLimit;
 
     // reference the game object
     this.gameObject = config.gameObject;
+  }
+
+  get frame() {
+    return this.animations[this.currentAnimation][this.currentAnimationFrame];
+  }
+
+  updateAnimationProgress() {
+    // Downtick Frame Progress
+    if (this.animationFrameProgress > 0) {
+      this.animationFrameProgress -= 1;
+      return;
+    }
+
+    // Reset the counter
+    this.animationFrameProgress = this.animationFrameLimit;
+    this.currentAnimationFrame += 1;
+
+    if (this.frame === undefined) {
+      this.currentAnimationFrame = 0;
+    }
   }
 
   draw(ctx) {
@@ -40,6 +63,11 @@ class Sprite {
 
     this.isShadowLoaded && ctx.drawImage(this.shadow, x, y);
 
-    this.isLoaded && ctx.drawImage(this.image, 0, 0, 32, 32, x, y, 32, 32);
+    const [frameX, frameY] = this.frame;
+
+    this.isLoaded &&
+      ctx.drawImage(this.image, frameX * 32, frameY * 32, 32, 32, x, y, 32, 32);
+
+    this.updateAnimationProgress();
   }
 }
