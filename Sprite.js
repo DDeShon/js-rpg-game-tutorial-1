@@ -19,7 +19,7 @@ class Sprite {
 
     // configure animation and initial state
     this.animations = config.animations || {
-      idleDown: [[0, 0]],
+      "idle-down": [[0, 0]],
       //   walkDown: [
       //     [0, 0],
       //     [1, 0],
