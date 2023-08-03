@@ -1,6 +1,7 @@
 class OverworldMap {
   constructor(config) {
     this.gameObjects = config.gameObjects;
+    this.walls = config.walls || {};
 
     this.lowerImage = new Image();
     this.lowerImage.src = config.lowerSrc;
@@ -42,6 +43,9 @@ window.OverworldMaps = {
         y: utils.withGrid(9),
         src: "/images/characters/people/npc1.png",
       }),
+    },
+    walls: {
+      [utils.asGridCoord(7, 6)]: true,
     },
   },
 
