@@ -15,7 +15,7 @@ class Overworld {
       const cameraPerson = this.map.gameObjects.hero;
 
       // Draw Lower layer
-      this.map.drawLowerImage(this.ctx);
+      this.map.drawLowerImage(this.ctx, cameraPerson);
 
       // Draw Game Objects
       Object.values(this.map.gameObjects).forEach((object) => {
@@ -26,7 +26,7 @@ class Overworld {
       });
 
       // Draw Upper layer
-      this.map.drawUpperImage(this.ctx);
+      this.map.drawUpperImage(this.ctx, cameraPerson);
 
       requestAnimationFrame(() => {
         step();
