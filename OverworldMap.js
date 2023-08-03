@@ -25,6 +25,11 @@ class OverworldMap {
       utils.withGrid(6) - cameraPerson.y
     );
   }
+
+  isSpaceTaken(currentX, currentY, direction) {
+    const { x, y } = utils.nextPosition(currentX, currentY, direction);
+    return this.walls[`${x}, ${y}`] || false;
+  }
 }
 
 window.OverworldMaps = {
