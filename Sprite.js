@@ -86,7 +86,7 @@ class Sprite {
     }
   }
 
-  draw(ctx) {
+  draw(ctx, cameraPerson) {
     const x = this.gameObject.x - 8;
     const y = this.gameObject.y - 18;
 
