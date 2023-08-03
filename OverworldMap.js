@@ -49,6 +49,7 @@ window.OverworldMaps = {
         src: "/images/characters/people/npc1.png",
       }),
     },
+
     walls: {
       [utils.asGridCoord(7, 6)]: true,
       [utils.asGridCoord(8, 6)]: true,
