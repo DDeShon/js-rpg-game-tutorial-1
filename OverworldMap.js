@@ -77,7 +77,7 @@ window.OverworldMaps = {
           { type: "stand", direction: "left", time: 800 },
           { type: "stand", direction: "up", time: 800 },
           { type: "stand", direction: "right", time: 1200 },
-          { type: "stand", direction: "down", time: 300 },
+          { type: "stand", direction: "up", time: 300 },
         ],
       }),
 
