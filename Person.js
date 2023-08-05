@@ -43,6 +43,15 @@ class Person extends GameObject {
       // Begin walking
       state.map.moveWall(this.x, this.y, this.direction);
       this.movingProgressRemaining = 16;
+      this.updateSprite(state);
+    }
+
+    if (behavior.type === "stand") {
+      setTimeout(() => {
+        utils.emitEvent("PersonStandingComplete", {
+          whoId: this.id,
+        });
+      }, behavior.time);
     }
   }
 

@@ -4,7 +4,19 @@ class OverworldEvent {
     this.event = event;
   }
 
-  stand(resolve) {}
+  stand(resolve) {
+    const who = this.map.gameObjects[this.event.who];
+    who.startBehavior(
+      {
+        map: this.map,
+      },
+      {
+        type: "stand",
+        direction: this.event.direction,
+        time: this.event.time,
+      }
+    );
+  }
 
   walk(resolve) {
     const who = this.map.gameObjects[this.event.who];
