@@ -41,7 +41,7 @@ class GameObject {
     await eventHandler.init();
 
     // Setting the next event to fire
-    this.doBehaviorEvent += 1;
+    this.behaviorLoopIndex += 1;
     if (this.behaviorLoopIndex === this.behaviorLoop.length) {
       this.behaviorLoopIndex = 0;
     }
