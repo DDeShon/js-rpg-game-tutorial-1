@@ -25,4 +25,8 @@ class GameObject {
   }
 
   update() {}
+
+  doBehaviorEvent(map) {
+    let event = this.behaviorLoop[this.behaviorLoopIndex];
+  }
 }
