@@ -17,6 +17,16 @@ class OverworldEvent {
         direction: this.event.direction,
       }
     );
+
+    // Set up a handler to complete when correct person is done walking and resolve the event
+    const completeHandler = (e) => {
+      if (e.detail.whoId === this.event.who) {
+        document.removeEventListener("PersonWalkingComplete", completeHandler);
+        resolve();
+      }
+    };
+
+    document.addEventListener("PersonWalkingComplete", completeHandler);
   }
 
   init() {
