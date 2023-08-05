@@ -26,7 +26,25 @@ class GameObject {
 
   update() {}
 
-  doBehaviorEvent(map) {
-    let event = this.behaviorLoop[this.behaviorLoopIndex];
+  async doBehaviorEvent(map) {
+    // Don't do anything if there's a cutscene or no config
+    if (map.isCutscenePlaying || this.behaviorLoop.length === 0) {
+      return;
+    }
+
+    // Setting up an event with relevant info
+    let eventConfig = this.behaviorLoop[this.behaviorLoopIndex];
+    eventConfig.who = this.id;
+
+    // Create an event instance from the next event config
+    const eventHandler = new OverworldEvent({ map, event: eventConfig });
+    await eventHandler.init();
+
+    // Setting the next event to fire
+    this.doBehaviorEvent += 1;
+    if (this.behaviorLoopIndex === this.behaviorLoop.length) {
+      this.behaviorLoopIndex = 0;
+    }
+    this.doBehaviorEvent(map);
   }
 }
