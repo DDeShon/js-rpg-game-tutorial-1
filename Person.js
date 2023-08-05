@@ -53,12 +53,9 @@ class Person extends GameObject {
 
     if (this.movingProgressRemaining === 0) {
       // Walking is finished
-      const event = new CustomEvent("PersonWalkingComplete", {
-        detail: {
-          whoId: this.id,
-        },
+      utils.emitEvent("PersonWalkingComplete", {
+        whoId: this.id,
       });
-      document.dispatchEvent(event);
     }
   }
 
