@@ -69,7 +69,9 @@ class OverworldMap {
     const match = Object.values(this.gameObjects).find((object) => {
       return `${object.x}, ${object.y}` === `${nextCoords.x}, ${nextCoords.y}`;
     });
-    console.log({ match });
+    if (!this.isCutscenePlaying && match && match.talking.length) {
+      this.startCutscene(match.talking[0].events);
+    }
   }
 
   addWall(x, y) {
@@ -107,6 +109,14 @@ window.OverworldMaps = {
           { type: "stand", direction: "up", time: 800 },
           { type: "stand", direction: "right", time: 1200 },
           { type: "stand", direction: "up", time: 300 },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "I'm busy..." },
+              { type: "textMessage", text: "Go away!" },
+            ],
+          },
         ],
       }),
 
