@@ -177,14 +177,22 @@ window.OverworldMaps = {
     upperSrc: "/images/maps/KitchenUpper.png",
     gameObjects: {
       hero: new Person({
-        x: utils.withGrid(3),
+        isPlayerControlled: true,
+        x: utils.withGrid(5),
         y: utils.withGrid(5),
       }),
 
       npcA: new Person({
-        x: utils.withGrid(7),
-        y: utils.withGrid(9),
+        x: utils.withGrid(10),
+        y: utils.withGrid(8),
         src: "/images/characters/people/npc2.png",
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "You made it!", faceHero: ["npcA"] },
+            ],
+          },
+        ],
       }),
 
       npcB: new Person({
