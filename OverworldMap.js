@@ -198,11 +198,11 @@ window.OverworldMaps = {
         ],
       }),
 
-      // npcB: new Person({
-      //   x: utils.withGrid(4),
-      //   y: utils.withGrid(8),
-      //   src: "/images/characters/people/npc3.png",
-      // }),
+      npcB: new Person({
+        x: utils.withGrid(4),
+        y: utils.withGrid(8),
+        src: "/images/characters/people/npc3.png",
+      }),
     },
   },
 };
