@@ -78,6 +78,9 @@ class OverworldMap {
   checkForFootstepCutscene() {
     const hero = this.gameObjects["hero"];
     const match = this.cutsceneSpaces[`${hero.x}, ${hero.y}`];
+    if (!this.isCutscenePlaying && match) {
+      this.startCutscene(match[0].events);
+    }
   }
 
   addWall(x, y) {
@@ -153,6 +156,8 @@ window.OverworldMaps = {
           events: [
             { who: "npcB", type: "walk", direction: "left" },
             { who: "npcB", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "HEY!!" },
+            { who: "hero", type: "stand", direction: "down", time: 400 },
             { type: "textMessage", text: "You can't be in there!" },
             { who: "npcB", type: "walk", direction: "right" },
             { who: "npcB", type: "stand", direction: "down" },
