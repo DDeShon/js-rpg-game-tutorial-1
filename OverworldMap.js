@@ -1,5 +1,6 @@
 class OverworldMap {
   constructor(config) {
+    this.overworld = null;
     this.gameObjects = config.gameObjects;
     this.cutsceneSpaces = config.cutsceneSpaces || {};
     this.walls = config.walls || {};
@@ -166,9 +167,11 @@ window.OverworldMaps = {
           ],
         },
       ],
-      [utils.asGridCoord(5, 10)]: {
-        events: [{ type: "changeMap", map: "Kitchen" }],
-      },
+      [utils.asGridCoord(5, 10)]: [
+        {
+          events: [{ type: "changeMap", map: "Kitchen" }],
+        },
+      ],
     },
   },
 
@@ -189,17 +192,17 @@ window.OverworldMaps = {
         talking: [
           {
             events: [
-              { type: "textMessage", text: "You made it!", faceHero: ["npcA"] },
+              { type: "textMessage", text: "You made it!", faceHero: "npcA" },
             ],
           },
         ],
       }),
 
-      npcB: new Person({
-        x: utils.withGrid(4),
-        y: utils.withGrid(8),
-        src: "/images/characters/people/npc3.png",
-      }),
+      // npcB: new Person({
+      //   x: utils.withGrid(4),
+      //   y: utils.withGrid(8),
+      //   src: "/images/characters/people/npc3.png",
+      // }),
     },
   },
 };
