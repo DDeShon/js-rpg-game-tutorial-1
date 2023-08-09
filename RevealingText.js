@@ -21,6 +21,14 @@ class RevealingText {
     }
   }
 
+  warpToDone() {
+    clearTimeout(this.timeout);
+    this.isDone = true;
+    this.element.querySelectorAll("span").forEach((s) => {
+      s.classList.add("revealed");
+    });
+  }
+
   init() {
     let characters = [];
     this.text.split("").forEach((character) => {
