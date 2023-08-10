@@ -8,9 +8,9 @@ class SceneTransition {
   }
 
   fadeOut() {
-    this.element.classList("fade-out");
+    this.element.classList.add("fade-out");
     this.element.addEventListener(
-      "onanimationend",
+      "animationend",
       () => {
         this.element.remove();
       },
@@ -23,7 +23,7 @@ class SceneTransition {
     container.appendChild(this.element);
 
     this.element.addEventListener(
-      "onanimationend",
+      "animationend",
       () => {
         callback();
       },
