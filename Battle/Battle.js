@@ -14,5 +14,8 @@ class Battle {
         `;
   }
 
-  init(container) {}
+  init(container) {
+    this.createElement();
+    container.appendChild(this.element);
+  }
 }
