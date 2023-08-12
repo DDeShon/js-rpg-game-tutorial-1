@@ -3,9 +3,35 @@ class Battle {
     this.combatants = {
       player1: new Combatant(
         {
+          ...Pizzas.s001,
+          team: "player",
           hp: 50,
           maxHP: 50,
           xp: 0,
+          level: 1,
+          status: null,
+        },
+        this
+      ),
+      enemy1: new Combatant(
+        {
+          ...Pizzas.v001,
+          team: "enemy",
+          hp: 50,
+          maxHP: 50,
+          xp: 20,
+          level: 1,
+          status: null,
+        },
+        this
+      ),
+      enemy2: new Combatant(
+        {
+          ...Pizzas.f001,
+          team: "enemy",
+          hp: 50,
+          maxHP: 50,
+          xp: 30,
           level: 1,
           status: null,
         },
