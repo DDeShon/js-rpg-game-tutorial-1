@@ -6,7 +6,12 @@ class Combatant {
     this.battle = battle;
   }
 
-  createELement() {}
+  createELement() {
+    this.hudElement = document.createElement("div");
+    this.hudElement.classList.add("Combatant");
+    this.hudElement.setAttribute("data-combatant", this.id);
+    this.hudElement.setAttribute("data-team", this.team);
+  }
 
   init() {}
 }
