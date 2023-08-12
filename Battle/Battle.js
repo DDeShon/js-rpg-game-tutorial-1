@@ -1,5 +1,18 @@
 class Battle {
-  constructor() {}
+  constructor() {
+    this.combatants = {
+      player1: new Combatant(
+        {
+          hp: 50,
+          maxHP: 50,
+          xp: 0,
+          level: 1,
+          status: null,
+        },
+        this
+      ),
+    };
+  }
 
   createElement() {
     this.element = document.createElement("div");
