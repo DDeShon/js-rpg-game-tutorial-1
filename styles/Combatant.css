@@ -55,3 +55,15 @@
     width: 16px;
     height: 16px;
 }
+
+.Combatant_life-container {
+    position: absolute;
+    left: 20px;
+    top: 4px;
+    width: 26px;
+    height: 3px;
+}
+
+.Combatant_life-container > rect {
+    transition: width 0.2s;
+}
