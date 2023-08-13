@@ -107,6 +107,6 @@
     color: red;
 }
 
-.Combatant_status[data-status="drop"] {
+.Combatant_status[data-status="clumsy"] {
     background: #582a79;
 }
