@@ -41,7 +41,7 @@
     top: -8px;
     white-space: nowrap;
     background: var(--menu-font-color);
-    color: #fff;
+    color: white;
     font-size: 5px; /* This is so small because the component is scaled 2x in battle*/
     padding-left: 2px;
     padding-right: 2px;
@@ -89,4 +89,24 @@
     background: #F8C594;
     border: 1px solid #A48465;
     margin: 0;
+}
+
+.Combatant_status {
+    position: absolute;
+    font-size: 5px;
+    left: 47px;
+    bottom: -3px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    margin: 0;
+}
+
+.Combatant_status[data-status="saucy"] {
+    color: red;
+}
+
+.Combatant_status[data-status="drop"] {
+    background: #582a79;
 }
