@@ -5,6 +5,18 @@
     position: absolute;
 }
 
+.Battle .Combatant {
+    transform: scale(2);
+}
+
+.Battle .Combatant[data-active="false"] {
+    opacity: 0;
+}
+
+.Battle .Combatant[data-active="true"] {
+    opacity: 1;
+}
+
 .Combatant[data-team="player"] {
     left: 46px;
     top: 70px;
@@ -51,7 +63,7 @@
 .Combatant_type {
     position: absolute;
     left: 3px;
-    top: 2px;
+    top: -2px;
     width: 16px;
     height: 16px;
 }
