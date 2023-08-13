@@ -30,5 +30,14 @@ class Combatant {
     `;
   }
 
-  init() {}
+  init(container) {
+    this.createELement();
+    container.appendChild(this.element);
+
+    Object.keys(this.combatants).forEach((key) => {
+      let combatant = this.combatants[key];
+      combatant.id = key;
+      combatant.init(this.element);
+    });
+  }
 }
