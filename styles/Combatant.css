@@ -67,3 +67,26 @@
 .Combatant_life-container > rect {
     transition: width 0.2s;
 }
+
+.Combatant_xp-container {
+    position: absolute;
+    left: 20px;
+    top: 8px;
+    width: 26px;
+    height: 2px;
+}
+
+.Combatant_level {
+    position: absolute;
+    font-size: 12px;
+    right: 2px;
+    top: -1px;
+    width: 17px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F8C594;
+    border: 1px solid #A48465;
+    margin: 0;
+}
