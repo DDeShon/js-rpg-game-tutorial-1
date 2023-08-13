@@ -14,3 +14,24 @@
     top: 28px;
     right: 77px;
 }
+
+.Combatant_character_crop {
+    position: absolute;
+    bottom: 1px;
+    left: 3px;
+    width: 22px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.Combatant_character {
+    display: block;
+    position: absolute;
+    left: -11px;
+    bottom: -7px;
+}
+
+.Battle .Combatant_character_crop {
+    display: none;
+}
+
