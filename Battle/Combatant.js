@@ -30,6 +30,13 @@ class Combatant {
     `;
   }
 
+  update(changes = {}) {
+    //Update anything incoming
+    Object.keys(changes).forEach((key) => {
+      this[key] = changes[key];
+    });
+  }
+
   init(container) {
     this.createELement();
     container.appendChild(this.hudElement);
