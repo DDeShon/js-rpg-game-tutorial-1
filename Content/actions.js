@@ -1,10 +1,10 @@
 window.Actions = {
   damage1: {
-    name: "whomp",
+    name: "Whomp!",
     success: [
-      { type: "textMessage", text: "{CASTER} uses Whomp!" },
+      { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       //   { type: "animation", animation: "Something happened!" },
-      //   { type: "stateChange", damage: 10 },
+      { type: "stateChange", damage: 10 },
     ],
   },
 };
