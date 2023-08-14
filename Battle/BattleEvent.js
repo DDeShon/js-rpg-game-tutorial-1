@@ -1,0 +1,5 @@
+class BattleEvent {
+  constructor() {}
+
+  init() {}
+}
