@@ -90,9 +90,9 @@
 
 .Combatant_level {
     position: absolute;
-    font-size: 12px;
+    font-size: 10px;
     right: 2px;
-    top: -1px;
+    top: -5px;
     width: 17px;
     height: 12px;
     display: flex;
