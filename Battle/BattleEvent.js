@@ -14,7 +14,17 @@ class BattleEvent {
     message.init(this.battle.element);
   }
 
-  submissionMenu(resolve) {}
+  submissionMenu(resolve) {
+    const menu = new SubmissionMenu({
+      caster: this.event.caster,
+      enemy: this.event.enemy,
+      onComplete: (submission) => {
+        // submission ( what move to use and who to use it on )
+        resolve(submission);
+      },
+    });
+    menu.init(this.battle.element);
+  }
 
   init(resolve) {
     this[this.event.type](resolve);
