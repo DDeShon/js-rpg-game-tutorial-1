@@ -63,18 +63,22 @@ class Combatant {
       this[key] = changes[key];
     });
 
+    // Update active flag to show the correct pizza & hud elements
     this.hudElement.setAttribute("data-active", this.isActive);
+    this.pizzaElement.setAttribute("data-active", this.isActive);
 
+    // Update HP & XP percent fills
     this.hpFills.forEach((rect) => (rect.style.width = `${this.hpPercent}%`));
-
     this.xpFills.forEach((rect) => (rect.style.width = `${this.xpPercent}%`));
 
+    // Update levels on screen
     this.hudElement.querySelector(".Combatant_level").innerText = this.level;
   }
 
   init(container) {
     this.createELement();
     container.appendChild(this.hudElement);
+    container.appendChild(this.pizzaElement);
 
     this.update();
   }

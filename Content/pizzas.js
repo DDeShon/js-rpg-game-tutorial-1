@@ -22,7 +22,7 @@ window.Pizzas = {
   f001: {
     name: "Portobello Express",
     type: PizzaTypes.fungi,
-    src: "/images/characters/pizzas/sf001.png",
+    src: "/images/characters/pizzas/f001.png",
     icon: "/images/icons/fungi.png",
   },
 };
