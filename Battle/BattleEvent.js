@@ -23,7 +23,12 @@ class BattleEvent {
     const { caster, target, damage } = this.event;
     if (damage) {
       // Modify the target HP
+      target.update({
+        hp: target.hp - damage,
+      });
+
       // Start blinking
+      target.pizzaElement.classList.add("battle-damage-blink");
     }
 
     // Wait
