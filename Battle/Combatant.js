@@ -45,9 +45,7 @@ class Combatant {
       this[key] = changes[key];
     });
 
-    this.hpFills.forEach(
-      (rect) => (rect.computedStyleMap.width = `${this.hpPercent}%`)
-    );
+    this.hpFills.forEach((rect) => (rect.style.width = `${this.hpPercent}%`));
 
     this.hudElement.querySelector(".Combatant_level").innerText = this.level;
   }
