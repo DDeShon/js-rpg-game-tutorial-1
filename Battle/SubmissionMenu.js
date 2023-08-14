@@ -5,5 +5,14 @@ class SubmissionMenu {
     this.onComplete = onComplete;
   }
 
-  init(container) {}
+  decide() {
+    this.onComplete({
+      action: Actions[this.caster.actions[0]],
+      target: this.enemy,
+    });
+  }
+
+  init(container) {
+    this.decide();
+  }
 }

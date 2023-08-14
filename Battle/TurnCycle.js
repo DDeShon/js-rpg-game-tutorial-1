@@ -20,6 +20,21 @@ class TurnCycle {
       caster,
       enemy,
     });
+
+    const resultingEvents = submission.action.success;
+    for (let i = 0; i < resultingEvents.length; i++) {
+      const event = {
+        ...resultingEvents[i],
+        submission,
+        action: submission.action,
+        caster,
+        target: submission.target,
+      };
+      await this.onNewEvent(event);
+    }
+
+    this.currentTeam = this.currentTeam === "player" ? "enemy" : "player";
+    this.turn();
   }
 
   async init() {
