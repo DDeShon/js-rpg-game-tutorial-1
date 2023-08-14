@@ -79,5 +79,7 @@ class Battle {
         });
       },
     });
+
+    this.turnCycle.init();
   }
 }

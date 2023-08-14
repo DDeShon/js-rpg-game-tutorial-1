@@ -5,7 +5,13 @@ class BattleEvent {
   }
 
   textMessage(resolve) {
-    console.log("A MESSASGE");
+    const message = new TextMessage({
+      text: this.event.text,
+      onComplete: () => {
+        resolve();
+      },
+    });
+    message.init(this.battle.element);
   }
 
   init(resolve) {
