@@ -85,6 +85,16 @@ class Combatant {
     }
   }
 
+  getPostEvents() {
+    if (this.status?.type === "saucy") {
+      return [
+        { type: "textMessage", text: "Feelin' saucy!" },
+        { type: "stateChange", recover: 5, onCaster: true },
+      ];
+    }
+    return [];
+  }
+
   init(container) {
     this.createELement();
     container.appendChild(this.hudElement);
