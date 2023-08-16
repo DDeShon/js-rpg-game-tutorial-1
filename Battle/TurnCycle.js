@@ -42,7 +42,7 @@ class TurnCycle {
         submission,
         action: submission.action,
         caster,
-        target,
+        target: submission.target,
       };
       await this.onNewEvent(event);
     }
