@@ -85,6 +85,14 @@ class Combatant {
     }
   }
 
+  getReplacedEvents(originalEvents) {
+    if (this.status?.type === "clumsy") {
+      return [{ type: "textMessage", text: `${this.name} falls over!` }];
+    }
+
+    return originalEvents;
+  }
+
   getPostEvents() {
     if (this.status?.type === "saucy") {
       return [
