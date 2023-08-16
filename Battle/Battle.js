@@ -10,10 +10,7 @@ class Battle {
           xp: 75,
           maxXp: 100,
           level: 1,
-          status: {
-            type: "saucy",
-            expiresIn: 3,
-          },
+          status: null,
         },
         this
       ),
