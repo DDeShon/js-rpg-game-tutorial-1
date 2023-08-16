@@ -8,6 +8,15 @@ window.Actions = {
     ],
   },
 
+  clumsyStatus: {
+    name: "Olive Oil",
+    success: [
+      { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
+      { type: "stateChange", status: { type: "clumsy", expiresIn: 3 } },
+      { type: "textMessage", text: "{TARGET} is slipping on the oil!" },
+    ],
+  },
+
   saucyStatus: {
     name: "Tomato Squeeze",
     targetType: "friendly",
