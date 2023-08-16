@@ -19,5 +19,12 @@ window.BattleAnimations = {
     onComplete();
   },
 
-  async glob(event, onComplete) {},
+  async glob(event, onComplete) {
+    const { caster } = event;
+    let div = document.createElement("div");
+    div.classList.add("glob-orb");
+    div.classList.add(
+      caster.team === "player" ? "battle-glob-right" : "battle-glob-left"
+    );
+  },
 };
