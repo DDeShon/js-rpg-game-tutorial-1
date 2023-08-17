@@ -28,10 +28,17 @@ class KeyboardMenu {
   createElement() {
     this.element = document.createElement("div");
     this.element.classList.add("KeyboardMenu");
+
+    // Description box element
+    this.descriptionElement = document.createElement("div");
+    this.descriptionElement.classList.add("DescriptionBox");
+    this.descriptionElement.innerHTML = `<p>I will provide information!</p>`;
+    this.descriptionElementText = this.descriptionElement.querySelector("p");
   }
 
   init(container) {
     this.createElement();
+    container.appendChild(this.descriptionElement);
     container.appendChild(this.element);
   }
 }
