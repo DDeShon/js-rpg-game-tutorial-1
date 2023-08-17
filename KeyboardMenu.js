@@ -15,9 +15,7 @@ class KeyboardMenu {
             <div class="option">
                 <buttton ${disabledAttr} data-button="${index}" data-description="${
           option.description
-        }">
-                    ${option.label}
-                </button>
+        }">${option.label}</button>
                 <span class="right">${option.right ? option.right() : ""}</span>
             </div>
         `;
