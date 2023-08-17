@@ -12,13 +12,15 @@ class KeyboardMenu {
       .map((option, index) => {
         const disabledAttr = option.disabled ? "disabled" : "";
         return `
-            <div class="option">
-                <buttton ${disabledAttr} data-button="${index}" data-description="${
+        <div class="option">
+          <button ${disabledAttr} data-button="${index}" data-description="${
           option.description
-        }">${option.label}</button>
-                <span class="right">${option.right ? option.right() : ""}</span>
-            </div>
-        `;
+        }">
+            ${option.label}
+          </button>
+          <span class="right">${option.right ? option.right() : ""}</span>
+        </div>
+      `;
       })
       .join("");
   }
