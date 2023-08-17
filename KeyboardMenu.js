@@ -1,0 +1,5 @@
+class KeyboardMenu {
+  constructor() {}
+
+  init() {}
+}

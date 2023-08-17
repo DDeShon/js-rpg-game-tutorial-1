@@ -13,6 +13,7 @@ class SubmissionMenu {
           description: "Choose an attack",
           handler: () => {
             // Do something when chosen
+            console.log("GO TO ATTACKS PAGE");
           },
         },
         {
@@ -41,7 +42,11 @@ class SubmissionMenu {
     });
   }
 
-  showMenu(container) {}
+  showMenu(container) {
+    this.keyboardMenu = new KeyboardMenu();
+    this.keyboardMenu.init(container);
+    this.keyboardMenu.setOptions(this.getPages().root);
+  }
 
   init(container) {
     if (this.caster.isPlayerControlled) {
