@@ -10,14 +10,15 @@ class KeyboardMenu {
     this.options = options;
     this.element.innerHTML = this.options
       .map((option, index) => {
+        const disabledAttr = option.disabled ? "disabled" : "";
         return `
             <div class="option">
-                <buttton data-button="${index}" data-description="${
+                <buttton ${disabledAttr} data-button="${index}" data-description="${
           option.description
         }">
                     ${option.label}
                 </button>
-                <span class="right">${o.right ? o.right() : ""}</span>
+                <span class="right">${option.right ? option.right() : ""}</span>
             </div>
         `;
       })
@@ -31,5 +32,6 @@ class KeyboardMenu {
 
   init(container) {
     this.createElement();
+    container.appendChild(this.element);
   }
 }
