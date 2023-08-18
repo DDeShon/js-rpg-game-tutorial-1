@@ -32,7 +32,15 @@ class SubmissionMenu {
           },
         },
       ],
-      attacks: [],
+      attacks: [
+        {
+          label: "My first attack",
+          description: "Does this..",
+          handler: () => {
+            // Attack
+          },
+        },
+      ],
     };
   }
 
