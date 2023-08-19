@@ -40,13 +40,16 @@ class SubmissionMenu {
         },
       ],
       attacks: [
-        {
-          label: "My first attack",
-          description: "Does this..",
-          handler: () => {
-            // Submit this attack
-          },
-        },
+        ...this.caster.actions.map((key) => {
+          const action = Action[key];
+          return {
+            label: action.name,
+            description: action.description,
+            handler: () => {
+              this.menuSubmit(action);
+            },
+          };
+        }),
         backOption,
       ],
       items: [
@@ -56,11 +59,16 @@ class SubmissionMenu {
     };
   }
 
-  decide() {
+  menuSubmit(action, instanceId = null) {
     this.onComplete({
-      action: Actions[this.caster.actions[0]],
+      action,
       target: this.enemy,
     });
+  }
+
+  decide() {
+    // TODO: Enemies should randomly decide what to do..
+    this.menuSubmit(Actions[this.caster.actions[0]]);
   }
 
   showMenu(container) {
