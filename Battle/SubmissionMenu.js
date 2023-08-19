@@ -26,9 +26,9 @@ class SubmissionMenu {
         {
           label: "Items",
           description: "Choose an item",
-          disabled: true,
           handler: () => {
             // Go to items page
+            this.keyboardMenu.setOptions(this.getPages().items);
           },
         },
         {
@@ -47,6 +47,11 @@ class SubmissionMenu {
             // Submit this attack
           },
         },
+        backOption,
+      ],
+      items: [
+        // Items will go here
+        backOption,
       ],
     };
   }
