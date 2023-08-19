@@ -6,6 +6,13 @@ class SubmissionMenu {
   }
 
   getPages() {
+    const backOption = {
+      label: "Go Back",
+      description: "Return to previous page",
+      handler: () => {
+        this.keyboardMenu.setOptions(this.getPages().root);
+      },
+    };
     return {
       root: [
         {
