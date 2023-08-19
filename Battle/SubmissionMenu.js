@@ -13,7 +13,7 @@ class SubmissionMenu {
           description: "Choose an attack",
           handler: () => {
             // Do something when chosen
-            console.log("GO TO ATTACKS PAGE");
+            this.keyboardMenu.setOptions(this.getPages().attacks);
           },
         },
         {
@@ -37,7 +37,7 @@ class SubmissionMenu {
           label: "My first attack",
           description: "Does this..",
           handler: () => {
-            // Attack
+            // Submit this attack
           },
         },
       ],
