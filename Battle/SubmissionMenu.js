@@ -20,7 +20,6 @@ class SubmissionMenu {
       }
     });
     this.items = Object.values(quantityMap);
-    console.log(this.items);
   }
 
   getPages() {
@@ -71,7 +70,19 @@ class SubmissionMenu {
         backOption,
       ],
       items: [
-        // Items will go here
+        ...this.items.map((item) => {
+          const action = Actions[item.actionId];
+          return {
+            label: action.name,
+            description: action.description,
+            right: () => {
+              return "x" + item.quantity;
+            },
+            handler: () => {
+              this.menuSubmit(action, item.instanceId);
+            },
+          };
+        }),
         backOption,
       ],
     };
@@ -83,6 +94,7 @@ class SubmissionMenu {
     this.onComplete({
       action,
       target: action.targetType === "friendly" ? this.caster : this.enemy,
+      instanceId,
     });
   }
 
