@@ -46,6 +46,9 @@ class Battle {
       player: "player1",
       enemy: "enemy1",
     };
+    this.items = [
+      { actionId: "item_recoverStatus", instanceId: "p1", team: "player" },
+    ];
   }
 
   createElement() {
