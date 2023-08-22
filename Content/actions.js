@@ -44,5 +44,12 @@ window.Actions = {
   // Items
   item_recoverStatus: {
     name: "Heating Lamp",
+    description: "Feeling fresh and warm",
+    targetType: "friendly",
+    success: [
+      { type: "textMessage", text: "{CASTER} uses a {ACTION}!" },
+      { type: "stateChange", status: null },
+      { type: "textMessage", text: "Feeling fresh!" },
+    ],
   },
 };
