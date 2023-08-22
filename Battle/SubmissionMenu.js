@@ -1,8 +1,26 @@
 class SubmissionMenu {
-  constructor({ caster, enemy, onComplete }) {
+  constructor({ caster, enemy, onComplete, items }) {
     this.caster = caster;
     this.enemy = enemy;
     this.onComplete = onComplete;
+
+    let quantityMap = {};
+    items.forEach((item) => {
+      if (item.team === caster.team) {
+        let existing = quantityMap[item.actionId];
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          quantityMap[item.actionId] = {
+            actionId: item.actionId,
+            quantity: 1,
+            instanceId: item.instanceId,
+          };
+        }
+      }
+    });
+    this.items = Object.values(quantityMap);
+    console.log(this.items);
   }
 
   getPages() {
