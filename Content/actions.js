@@ -52,4 +52,14 @@ window.Actions = {
       { type: "textMessage", text: "Feeling fresh!" },
     ],
   },
+  item_recoverHp: {
+    name: "Parmesan",
+    description: "Feeling fresh and warm",
+    targetType: "friendly",
+    success: [
+      { type: "textMessage", text: "{CASTER} sprinkles on some {ACTION}!" },
+      { type: "stateChange", recover: 10 },
+      { type: "textMessage", text: "{CASTER} recovers HP!" },
+    ],
+  },
 };
