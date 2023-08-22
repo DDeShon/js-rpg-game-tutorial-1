@@ -1,6 +1,8 @@
 window.Actions = {
+  // Attacks
   damage1: {
     name: "Whomp!",
+    description: "Pillowy punch of dough",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "spin" },
@@ -10,6 +12,7 @@ window.Actions = {
 
   clumsyStatus: {
     name: "Olive Oil",
+    description: "Slippery mess of deliciousness",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "glob", color: "#dafd2a" },
@@ -20,6 +23,7 @@ window.Actions = {
 
   saucyStatus: {
     name: "Tomato Squeeze",
+    description: "Applies the Saucy status",
     targetType: "friendly",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
@@ -29,10 +33,16 @@ window.Actions = {
 
   saucyStatus2: {
     name: "Sauce Shower",
+    description: "Greatly extended Saucy status",
     targetType: "friendly",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "stateChange", status: { type: "saucy", expiresIn: 10 } },
     ],
+  },
+
+  // Items
+  item_recoverStatus: {
+    name: "Heating Lamp",
   },
 };
