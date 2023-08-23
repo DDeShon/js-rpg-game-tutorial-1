@@ -85,7 +85,7 @@ class BattleEvent {
   replacementMenu(resolve) {
     const menu = new ReplacementMenu({
       replacements: Object.values(this.battle.combatants).filter((c) => {
-        return (c) => c.team === this.event.team && c.hp > 0;
+        return c.team === this.event.team && c.hp > 0;
       }),
       onComplete: (replacement) => {
         resolve(replacement);

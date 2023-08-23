@@ -30,6 +30,10 @@ class ReplacementMenu {
   }
 
   init(container) {
-    this.showMenu(container);
+    if (this.replacements[0].isPlayerControlled) {
+      this.showMenu(container);
+    } else {
+      this.decide();
+    }
   }
 }

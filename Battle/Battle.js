@@ -33,7 +33,7 @@ class Battle {
         {
           ...Pizzas.v001,
           team: "enemy",
-          hp: 50,
+          hp: 1,
           maxHP: 50,
           xp: 20,
           maxXp: 100,

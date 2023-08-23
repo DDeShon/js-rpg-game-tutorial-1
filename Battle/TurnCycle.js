@@ -59,7 +59,7 @@ class TurnCycle {
     if (targetDead) {
       await this.onNewEvent({
         type: "textMessage",
-        text: `${sumission.target.name} is ruined!`,
+        text: `${submission.target.name} is ruined!`,
       });
     }
 
