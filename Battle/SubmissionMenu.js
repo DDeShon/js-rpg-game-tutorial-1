@@ -86,7 +86,26 @@ class SubmissionMenu {
         }),
         backOption,
       ],
+      replacements: [
+        ...this.replacements.map((replacement) => {
+          return {
+            label: replacement.name,
+            description: replacement.description,
+            handler: () => {
+              this.menuSubmit(replacement, item.instanceId);
+            },
+          };
+        }),
+        backOption,
+      ],
     };
+  }
+
+  menuSubmitReplacement(replacement) {
+    this.keyboardMenu?.end();
+    this.onComplete({
+      replacement,
+    });
   }
 
   menuSubmit(action, instanceId = null) {
