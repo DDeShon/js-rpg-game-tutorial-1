@@ -20,7 +20,7 @@ class Battle {
           ...Pizzas.s002,
           team: "player",
           hp: 100,
-          maxHP: 150,
+          maxHP: 100,
           xp: 75,
           maxXp: 100,
           level: 1,
