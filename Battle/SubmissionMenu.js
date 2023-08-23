@@ -92,7 +92,7 @@ class SubmissionMenu {
             label: replacement.name,
             description: replacement.description,
             handler: () => {
-              this.menuSubmit(replacement, item.instanceId);
+              this.menuSubmitReplacement(replacement);
             },
           };
         }),
