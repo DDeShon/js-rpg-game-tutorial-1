@@ -31,6 +31,7 @@ class TurnCycle {
         type: "textMessage",
         text: `Go get 'em, ${submission.replacement.name}!`,
       });
+      this.nextTurn();
       return;
     }
 
@@ -73,6 +74,10 @@ class TurnCycle {
       await this.onNewEvent(expiredEvent);
     }
 
+    this.nextTurn();
+  }
+
+  nextTurn() {
     this.currentTeam = this.currentTeam === "player" ? "enemy" : "player";
     this.turn();
   }
