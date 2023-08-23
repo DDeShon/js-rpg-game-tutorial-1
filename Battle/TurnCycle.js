@@ -54,6 +54,42 @@ class TurnCycle {
       await this.onNewEvent(event);
     }
 
+    // Did the target die?
+    const targetDead = submission.target.hp <= 0;
+    if (targetDead) {
+      await this.onNewEvent({
+        type: "textMessage",
+        text: `${sumission.target.name} is ruined!`,
+      });
+    }
+
+    // Is there a winning team?
+    const winner = this.getWinningTeam();
+    if (winner) {
+      await this.onNewEvent({
+        type: "textMessage",
+        text: "WINNER!",
+      });
+      // TODO: END THE BATTLE
+      return;
+    }
+
+    // Dead target but no winner, so bring in a replacement
+    if (targetDead) {
+      const replacement = await this.onNewEvent({
+        type: "replacementMenu",
+        team: submission.target.team,
+      });
+      await this.onNewEvent({
+        type: "replace",
+        replacement: replacement,
+      });
+      await this.onNewEvent({
+        type: "textMessage",
+        text: `${replacement.name} appears!`,
+      });
+    }
+
     // Check for post events
     // (Do things AFTER your original turn submission)
     const postEvents = caster.getPostEvents();
@@ -80,6 +116,22 @@ class TurnCycle {
   nextTurn() {
     this.currentTeam = this.currentTeam === "player" ? "enemy" : "player";
     this.turn();
+  }
+
+  getWinningTeam() {
+    let aliveTeams = {};
+    Object.values(this.battle.combatants).forEach((c) => {
+      if (c.hp > 0) {
+        aliveTeams[c.team] = true;
+      }
+    });
+    if (!aliveTeams["player"]) {
+      return "enemy";
+    }
+    if (!aliveTeams["enemy"]) {
+      return "player";
+    }
+    return null;
   }
 
   async init() {
