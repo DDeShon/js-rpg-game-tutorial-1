@@ -12,3 +12,22 @@
 .Team[data-team="enemy"] {
     right: 4px;
 }
+
+/* Start stateful paths as display: none */
+.Team .dead-pizza {
+    display: none;
+}
+
+.Team .active-pizza-indicator {
+    display: none;
+}
+
+/* Display stateful paths as opted in by data-attributes */
+.Team [data-dead="true"] .dead-pizza {
+    display: block;
+}
+
+.Team [data-active="true"] .active-pizza-indicator {
+    display: block;
+}
+

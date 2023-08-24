@@ -32,7 +32,13 @@ class Team {
     });
   }
 
-  update() {}
+  update() {
+    this.combatants.forEach((c) => {
+      const icon = this.element.querySelector(`[data-combatant="${c.id}"]`);
+      icon.setAttribute("data-dead", c.hp <= 0);
+      icon.setAttribute("data-active", c.isActive);
+    });
+  }
 
   init(container) {
     this.createElement();
