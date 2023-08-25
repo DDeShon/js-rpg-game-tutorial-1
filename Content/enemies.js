@@ -15,4 +15,16 @@ window.Enemies = {
       },
     },
   },
+  beth: {
+    name: "Beth",
+    src: "/images/characters/people/npc1.png",
+    pizzas: {
+      a: {
+        hp: 1,
+        pizzaId: "f001",
+        maxHP: 50,
+        level: 1,
+      },
+    },
+  },
 };
