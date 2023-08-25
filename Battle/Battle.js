@@ -1,71 +1,95 @@
 class Battle {
-  constructor() {
+  constructor({ enemy, onComplete }) {
+    this.enemy = enemy;
+    this.onComplete = onComplete;
+
     this.combatants = {
-      player1: new Combatant(
-        {
-          ...Pizzas.s001,
-          team: "player",
-          hp: 50,
-          maxHP: 50,
-          xp: 85,
-          maxXp: 100,
-          level: 1,
-          status: null,
-          isPlayerControlled: true,
-        },
-        this
-      ),
-      player2: new Combatant(
-        {
-          ...Pizzas.s002,
-          team: "player",
-          hp: 100,
-          maxHP: 100,
-          xp: 75,
-          maxXp: 100,
-          level: 1,
-          status: null,
-          isPlayerControlled: true,
-        },
-        this
-      ),
-      enemy1: new Combatant(
-        {
-          ...Pizzas.v001,
-          team: "enemy",
-          hp: 1,
-          maxHP: 50,
-          xp: 20,
-          maxXp: 100,
-          level: 1,
-          status: null,
-        },
-        this
-      ),
-      enemy2: new Combatant(
-        {
-          ...Pizzas.f001,
-          team: "enemy",
-          hp: 20,
-          maxHP: 50,
-          xp: 30,
-          maxXp: 100,
-          level: 1,
-          status: null,
-        },
-        this
-      ),
+      //   player1: new Combatant(
+      //     {
+      //       ...Pizzas.s001,
+      //       team: "player",
+      //       hp: 50,
+      //       maxHP: 50,
+      //       xp: 85,
+      //       maxXp: 100,
+      //       level: 1,
+      //       status: null,
+      //       isPlayerControlled: true,
+      //     },
+      //     this
+      //   ),
+      //   player2: new Combatant(
+      //     {
+      //       ...Pizzas.s002,
+      //       team: "player",
+      //       hp: 100,
+      //       maxHP: 100,
+      //       xp: 75,
+      //       maxXp: 100,
+      //       level: 1,
+      //       status: null,
+      //       isPlayerControlled: true,
+      //     },
+      //     this
+      //   ),
+      //   enemy1: new Combatant(
+      //     {
+      //       ...Pizzas.v001,
+      //       team: "enemy",
+      //       hp: 1,
+      //       maxHP: 50,
+      //       xp: 20,
+      //       maxXp: 100,
+      //       level: 1,
+      //       status: null,
+      //     },
+      //     this
+      //   ),
+      //   enemy2: new Combatant(
+      //     {
+      //       ...Pizzas.f001,
+      //       team: "enemy",
+      //       hp: 20,
+      //       maxHP: 50,
+      //       xp: 30,
+      //       maxXp: 100,
+      //       level: 1,
+      //       status: null,
+      //     },
+      //     this
+      //   ),
     };
+
     this.activeCombatants = {
-      player: "player1",
-      enemy: "enemy1",
+      player: null, //"player1",
+      enemy: null, //"enemy1",
     };
+
+    window.playerState.lineup.forEach((id) => {
+      this.addCombatant(id, "player", window.playerState.pizzas[id]);
+    });
+
     this.items = [
       // { actionId: "item_recoverStatus", instanceId: "p1", team: "player" },
       // { actionId: "item_recoverStatus", instanceId: "p2", team: "player" },
       // { actionId: "item_recoverStatus", instanceId: "p3", team: "enemy" },
       // { actionId: "item_recoverHp", instanceId: "p4", team: "player" },
     ];
+  }
+
+  addCombatant(id, team, config) {
+    this.combatants[id] = new Combatant(
+      {
+        ...Pizzas[config.pizzaId],
+        ...config,
+        team,
+        isPlayerControlled: team === "player",
+      },
+      this
+    );
+
+    // Populate first active pizza
+    this.activeCombatants[team] = this.activeCombatants[team] || id;
   }
 
   createElement() {
