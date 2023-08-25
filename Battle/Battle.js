@@ -65,8 +65,14 @@ class Battle {
       enemy: null, //"enemy1",
     };
 
+    // Dynamically add player team
     window.playerState.lineup.forEach((id) => {
       this.addCombatant(id, "player", window.playerState.pizzas[id]);
+    });
+
+    // Dynamically add enemy team
+    Object.keys(this.enemy.pizzas).forEach((key) => {
+      this.addCombatant("e_" + key, "enemy", this.enemy.pizzas[key]);
     });
 
     this.items = [
