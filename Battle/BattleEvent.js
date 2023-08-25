@@ -127,6 +127,11 @@ class BattleEvent {
         combatant.xp += 1;
 
         // Check if xp is enough to level up
+        if (combatant.xp === combatant.maxXp) {
+          combatant.xp = 0;
+          combatant.maxXp = 100;
+          combatant.level += 1;
+        }
 
         combatant.update();
         requestAnimationFrame(step);

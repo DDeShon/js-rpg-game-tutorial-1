@@ -1,0 +1,5 @@
+class PlayerState {
+  constructor() {}
+
+  init() {}
+}
