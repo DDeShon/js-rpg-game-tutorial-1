@@ -142,6 +142,10 @@ class Battle {
           battleEvent.init(resolve);
         });
       },
+      onWinner: (winner) => {
+        this.element.remove();
+        this.onComplete();
+      },
     });
 
     this.turnCycle.init();
