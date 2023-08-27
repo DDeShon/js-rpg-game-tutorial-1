@@ -143,6 +143,20 @@ class Battle {
         });
       },
       onWinner: (winner) => {
+        if (winner === "player") {
+          const playerState = window.playerState;
+          Object.keys(playerState.pizzas).forEach((id) => {
+            const playerStatePizza = playerState.pizzas[id];
+            const combatant = this.combatants[id];
+            if (combatant) {
+              playerStatePizza.hp = combatant.hp;
+              playerStatePizza.xp = combatant.xp;
+              playerStatePizza.maxXp = combatant.maxXp;
+              playerStatePizza.level = combatant.level;
+            }
+          });
+        }
+
         this.element.remove();
         this.onComplete();
       },
