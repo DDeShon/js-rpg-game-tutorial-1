@@ -3,7 +3,11 @@ class Hud {
     this.scoreboards = [];
   }
 
-  update() {}
+  update() {
+    this.scoreboards.forEach((s) => {
+      // Update scoreboards
+    });
+  }
 
   createElement() {
     this.element = document.createElement("div");
@@ -21,11 +25,14 @@ class Hud {
         null
       );
       scoreboard.createElement();
+      this.scoreboards.push(scoreboard);
+      this.element.appendChild(scoreboard.hudElement);
     });
+    this.update();
   }
 
   init(container) {
     this.createElement();
-    container.appendChild(container);
+    container.appendChild(this.element);
   }
 }
