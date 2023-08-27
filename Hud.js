@@ -5,7 +5,7 @@ class Hud {
 
   update() {
     this.scoreboards.forEach((s) => {
-      // Update scoreboards
+      //   s.update(window.playerState.pizzas[s.id]);
     });
   }
 
@@ -24,7 +24,7 @@ class Hud {
         },
         null
       );
-      scoreboard.createElement();
+      //   scoreboard.createElement();
       this.scoreboards.push(scoreboard);
       this.element.appendChild(scoreboard.hudElement);
     });
@@ -34,5 +34,9 @@ class Hud {
   init(container) {
     this.createElement();
     container.appendChild(this.element);
+
+    // document.addEventListener("PlayerStateUpdated", () => {
+    //   this.update();
+    // });
   }
 }
