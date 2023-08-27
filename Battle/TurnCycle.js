@@ -1,7 +1,8 @@
 class TurnCycle {
-  constructor({ battle, onNewEvent }) {
+  constructor({ battle, onNewEvent, onWinner }) {
     this.battle = battle;
     this.onNewEvent = onNewEvent;
+    this.onWinner = onWinner;
     this.currentTeam = "player"; // or "enemy"
   }
 
@@ -85,7 +86,7 @@ class TurnCycle {
         type: "textMessage",
         text: "WINNER!",
       });
-      // TODO: END THE BATTLE
+      this.onWinner(winner);
       return;
     }
 
