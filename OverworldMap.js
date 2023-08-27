@@ -140,7 +140,7 @@ window.OverworldMaps = {
           {
             events: [
               { type: "textMessage", text: "Bahahaha!" },
-              { type: "battle", enemyId: "erio" },
+              { type: "battle", enemyId: "erio", faceHero: "npcB" },
             ],
           },
         ],
