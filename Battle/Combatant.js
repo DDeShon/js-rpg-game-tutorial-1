@@ -24,7 +24,7 @@ class Combatant {
     return this.level * 20;
   }
 
-  createELement() {
+  createElement() {
     this.hudElement = document.createElement("div");
     this.hudElement.classList.add("Combatant");
     this.hudElement.setAttribute("data-combatant", this.id);
@@ -128,7 +128,7 @@ class Combatant {
   }
 
   init(container) {
-    this.createELement();
+    this.createElement();
     container.appendChild(this.hudElement);
     container.appendChild(this.pizzaElement);
 

@@ -24,6 +24,7 @@ class Hud {
         },
         null
       );
+
       scoreboard.createElement();
       this.scoreboards.push(scoreboard);
       this.element.appendChild(scoreboard.hudElement);
