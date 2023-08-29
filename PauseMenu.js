@@ -1,5 +1,5 @@
 class PauseMenu {
-  constructor(onComplete) {
+  constructor({ onComplete }) {
     this.onComplete = onComplete;
   }
 
@@ -34,7 +34,10 @@ class PauseMenu {
   }
 
   close() {
-    //
+    this.esc?.unbind();
+    this.keyboardMenu.end();
+    this.element.remove();
+    this.onComplete();
   }
 
   async init(container) {
