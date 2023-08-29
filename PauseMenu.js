@@ -3,7 +3,27 @@ class PauseMenu {
     this.onComplete = onComplete;
   }
 
-  getOptions() {}
+  getOptions(pageKey) {
+    if (pageKey === "root") {
+      return [
+        // Pizzas (dynamic)
+        {
+          label: "Save",
+          description: "Save your progress",
+          handler: () => {
+            // TODO
+          },
+        },
+        {
+          label: "Close",
+          description: "Close the pause menu",
+          handler: () => {
+            this.close();
+          },
+        },
+      ];
+    }
+  }
 
   createElement() {
     this.element = document.createElement("div");
@@ -23,7 +43,7 @@ class PauseMenu {
       //
     });
     this.keyboardMenu.init(this.element);
-    this.keyboardMenu.setOptions([]);
+    this.keyboardMenu.setOptions(this.getOptions("root"));
 
     container.appendChild(this.element);
 
