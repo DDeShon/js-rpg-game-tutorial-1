@@ -1,0 +1,5 @@
+class PauseMenu {
+  constructor() {}
+
+  init() {}
+}
