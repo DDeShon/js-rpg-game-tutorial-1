@@ -86,6 +86,10 @@ class OverworldEvent {
     battle.init(document.querySelector(".game-container"));
   }
 
+  pause(resolve) {
+    console.log("PAUSE NOW!");
+  }
+
   init() {
     return new Promise((resolve) => {
       this[this.event.type](resolve);
