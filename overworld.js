@@ -38,10 +38,10 @@ class Overworld {
       this.map.drawUpperImage(this.ctx, cameraPerson);
 
       if (!this.map.isPaused) {
+        requestAnimationFrame(() => {
+          step();
+        });
       }
-      requestAnimationFrame(() => {
-        step();
-      });
     };
     step();
   }
