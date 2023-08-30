@@ -43,7 +43,9 @@ class PlayerState {
     utils.emitEvent("LineupChanged");
   }
 
-  moveToFront() {
+  moveToFront(futureFrontId) {
+    this.lineup = this.lineup.filter((id) => id !== futureFrontId);
+    this.lineup.unshift(futureFrontId);
     utils.emitEvent("LineupChanged");
   }
 

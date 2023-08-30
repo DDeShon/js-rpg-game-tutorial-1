@@ -61,7 +61,8 @@ class PauseMenu {
         label: "Move to front",
         description: "Move this pizza to the front of the list",
         handler: () => {
-          // TODO:
+          playerState.moveToFront(pageKey);
+          this.keyboardMenu.setOptions(this.getOptions("root"));
         },
       },
       {
