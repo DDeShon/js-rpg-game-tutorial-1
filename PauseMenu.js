@@ -45,9 +45,17 @@ class PauseMenu {
       .map((id) => {
         const { pizzaId } = playerState.pizzas[id];
         const base = Pizzas[pizzaId];
+        return {
+          label: `Swap for ${base.name}`,
+          description: base.description,
+          handler: () => {
+            //
+          },
+        };
       });
     return [
       // Swap for any unequipped pizza
+      ...unequipped,
       {
         label: "Move to front",
         description: "Move this pizza to the front of the list",
