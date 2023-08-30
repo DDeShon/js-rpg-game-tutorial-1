@@ -51,7 +51,7 @@ class PauseMenu {
         label: "Back",
         description: "Return to previous page",
         handler: () => {
-          //
+          this.keyboardMenu.setOptions(this.getOptions("root"));
         },
       },
     ];
