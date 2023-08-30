@@ -49,7 +49,8 @@ class PauseMenu {
           label: `Swap for ${base.name}`,
           description: base.description,
           handler: () => {
-            // TODO:
+            playerState.swapLineup(pageKey, id);
+            this.keyboardMenu.setOptions(this.getOptions("root"));
           },
         };
       });
