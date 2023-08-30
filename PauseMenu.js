@@ -4,14 +4,22 @@ class PauseMenu {
   }
 
   getOptions(pageKey) {
+    // Case 1: Show the first page of options
     if (pageKey === "root") {
       const lineupPizzas = playerState.lineup.map((id) => {
         const { pizzaId } = playerState.pizzas[id];
         const base = Pizzas[pizzaId];
+        return {
+          label: base.name,
+          description: base.description,
+          handler: () => {
+            this.keyboardMenu.setOptions(this.getOptions(id));
+          },
+        };
       });
 
       return [
-        // Pizzas (dynamic)
+        ...lineupPizzas,
         {
           label: "Save",
           description: "Save your progress",
@@ -28,6 +36,25 @@ class PauseMenu {
         },
       ];
     }
+
+    // Case 2: Show the options for just one pizza (by id)
+    return [
+      // Swap for any unequipped pizza
+      {
+        label: "Move to front",
+        description: "Move this pizza to the front of the list",
+        handler: () => {
+          //
+        },
+      },
+      {
+        label: "Back",
+        description: "Return to previous page",
+        handler: () => {
+          //
+        },
+      },
+    ];
   }
 
   createElement() {
