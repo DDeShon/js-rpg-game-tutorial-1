@@ -38,6 +38,14 @@ class PauseMenu {
     }
 
     // Case 2: Show the options for just one pizza (by id)
+    const unequipped = Object.keys(playerState.pizzas)
+      .filter((id) => {
+        return playerState.lineup.indexOf(id) === -1;
+      })
+      .map((id) => {
+        const { pizzaId } = playerState.pizzas[id];
+        const base = Pizzas[pizzaId];
+      });
     return [
       // Swap for any unequipped pizza
       {
