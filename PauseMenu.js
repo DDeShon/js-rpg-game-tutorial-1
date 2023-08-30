@@ -5,6 +5,11 @@ class PauseMenu {
 
   getOptions(pageKey) {
     if (pageKey === "root") {
+      const lineupPizzas = playerState.lineup.map((id) => {
+        const { pizzaId } = playerState.pizzas[id];
+        const base = Pizzas[pizzaId];
+      });
+
       return [
         // Pizzas (dynamic)
         {
