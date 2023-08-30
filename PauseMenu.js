@@ -24,7 +24,7 @@ class PauseMenu {
           label: "Save",
           description: "Save your progress",
           handler: () => {
-            // TODO
+            // TODO:
           },
         },
         {
@@ -49,7 +49,7 @@ class PauseMenu {
           label: `Swap for ${base.name}`,
           description: base.description,
           handler: () => {
-            //
+            // TODO:
           },
         };
       });
@@ -60,7 +60,7 @@ class PauseMenu {
         label: "Move to front",
         description: "Move this pizza to the front of the list",
         handler: () => {
-          //
+          // TODO:
         },
       },
       {
