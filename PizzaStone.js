@@ -1,0 +1,5 @@
+class PizzaStone {
+  constructor() {}
+
+  init() {}
+}
