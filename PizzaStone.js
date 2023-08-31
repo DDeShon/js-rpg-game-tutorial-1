@@ -10,6 +10,13 @@ class PizzaStone extends GameObject {
       },
       currentAnimation: "used-down",
     });
+    this.storyFlag = config.storyFlag;
+  }
+
+  update() {
+    this.sprite.currentAnimation = playerState.storyFlags[this.storyFlag]
+      ? "used-down"
+      : "unused-down";
   }
 
   init() {}
