@@ -123,6 +123,16 @@ window.OverworldMaps = {
         ],
         talking: [
           {
+            required: ["TALKED_TO_ERIO"],
+            events: [
+              {
+                type: "textMessage",
+                text: "Isn't Erio the coolest?",
+                faceHero: "npcA",
+              },
+            ],
+          },
+          {
             events: [
               { type: "textMessage", text: "I'm busy...", faceHero: "npcA" },
               { type: "battle", enemyId: "beth" },
