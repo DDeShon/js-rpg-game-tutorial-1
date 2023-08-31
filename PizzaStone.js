@@ -28,6 +28,7 @@ class PizzaStone extends GameObject {
             type: "textMessage",
             text: "Approaching the legendary pizza stone...",
           },
+          { type: "addStoryFlag", flag: this.storyFlag },
         ],
       },
     ];
