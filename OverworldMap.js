@@ -139,8 +139,12 @@ window.OverworldMaps = {
           },
           {
             events: [
-              { type: "textMessage", text: "I'm busy...", faceHero: "npcA" },
-              { type: "battle", enemyId: "beth" },
+              {
+                type: "textMessage",
+                text: "Have you met Erio?",
+                faceHero: "npcA",
+              },
+              // { type: "battle", enemyId: "beth" },
               // { type: "textMessage", text: "Go away!" },
               // { who: "hero", type: "walk", direction: "up" },
             ],
@@ -156,7 +160,8 @@ window.OverworldMaps = {
           {
             events: [
               { type: "textMessage", text: "Bahahaha!", faceHero: "npcB" },
-              { type: "battle", enemyId: "erio" },
+              { type: "addStoryFlag", flag: "TALKED_TO_ERIO" },
+              // { type: "battle", enemyId: "erio" },
             ],
           },
         ],
