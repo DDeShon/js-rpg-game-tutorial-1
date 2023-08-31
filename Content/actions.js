@@ -44,7 +44,7 @@ window.Actions = {
   // Items
   item_recoverStatus: {
     name: "Heating Lamp",
-    description: "Feeling fresh and warm",
+    description: "Removes status, restoring freshness",
     targetType: "friendly",
     success: [
       { type: "textMessage", text: "{CASTER} uses a {ACTION}!" },
@@ -54,7 +54,7 @@ window.Actions = {
   },
   item_recoverHp: {
     name: "Parmesan",
-    description: "Feeling fresh and warm",
+    description: "Adds flavor, recovering HP",
     targetType: "friendly",
     success: [
       { type: "textMessage", text: "{CASTER} sprinkles on some {ACTION}!" },
