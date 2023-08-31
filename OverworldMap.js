@@ -75,7 +75,7 @@ class OverworldMap {
     if (!this.isCutscenePlaying && match && match.talking.length) {
       const relevantScenario = match.talking.find((scenario) => {
         return (scenario.required || []).every((sf) => {
-          return PlayerState.storyFlags[sf];
+          return playerState.storyFlags[sf];
         });
       });
       relevantScenario && this.startCutscene(relevantScenario.events);
