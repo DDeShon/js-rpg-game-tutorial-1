@@ -141,10 +141,11 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "Have you met Erio?",
+                text: "I'm going to crush you!",
                 faceHero: "npcA",
               },
-              // { type: "battle", enemyId: "beth" },
+              { type: "battle", enemyId: "beth" },
+              { type: "addStoryFlag", flag: "DEFEATED_BETH" },
               // { type: "textMessage", text: "Go away!" },
               // { who: "hero", type: "walk", direction: "up" },
             ],
