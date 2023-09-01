@@ -4,7 +4,13 @@ class CraftingMenu {
     this.onComplete = onComplete;
   }
 
-  createElement() {}
+  createElement() {
+    this.element = document.createElement("div");
+    this.element.classList.add("CraftingMenu");
+    this.element.innerHTML = `
+        <h2>Create a Pizza</h2
+    `;
+  }
 
   close() {}
 
