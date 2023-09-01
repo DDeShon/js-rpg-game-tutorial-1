@@ -186,6 +186,7 @@ window.OverworldMaps = {
         x: utils.withGrid(3),
         y: utils.withGrid(7),
         storyFlag: "USED_PIZZA_STONE",
+        pizzas: ["v001", "f001"],
       }),
     },
 
