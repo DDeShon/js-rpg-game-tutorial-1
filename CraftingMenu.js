@@ -1,5 +1,12 @@
 class CraftingMenu {
-  constructor() {}
+  constructor({ pizzas, onComplete }) {
+    this.pizzas = pizzas;
+    this.onComplete = onComplete;
+  }
 
-  init() {}
+  createElement() {}
+
+  close() {}
+
+  init(container) {}
 }
