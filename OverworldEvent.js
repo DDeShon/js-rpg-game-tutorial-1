@@ -110,7 +110,7 @@ class OverworldEvent {
         resolve();
       },
     });
-    menu.init();
+    menu.init(document.querySelector(".game-container"));
   }
 
   init() {
