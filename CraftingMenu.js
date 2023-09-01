@@ -5,7 +5,18 @@ class CraftingMenu {
   }
 
   getOptions() {
-    return [{ label: "Test", description: "Crafting will go here!" }];
+    return this.pizzas.map((id) => {
+      const base = Pizzas[id];
+      return {
+        label: base.name,
+        description: base.description,
+        handler: () => {
+          // Create a way to add a pizza to player state
+
+          this.close();
+        },
+      };
+    });
   }
 
   createElement() {
