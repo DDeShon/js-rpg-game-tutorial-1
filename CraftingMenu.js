@@ -4,7 +4,9 @@ class CraftingMenu {
     this.onComplete = onComplete;
   }
 
-  getOptions() {}
+  getOptions() {
+    return [{ label: "Test", description: "Crafting will go here!" }];
+  }
 
   createElement() {
     this.element = document.createElement("div");
@@ -14,7 +16,11 @@ class CraftingMenu {
     `;
   }
 
-  close() {}
+  close() {
+    this.keyboardMenu.end();
+    this.element.remove();
+    this.onComplete();
+  }
 
   init(container) {
     this.createElement();
@@ -23,5 +29,7 @@ class CraftingMenu {
     });
     this.keyboardMenu.init(this.element);
     this.keyboardMenu.setOptions(this.getOptions());
+
+    container.appendChild(this.element);
   }
 }
