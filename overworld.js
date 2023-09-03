@@ -106,7 +106,7 @@ class Overworld {
     this.hud.init(document.querySelector(".game-container"));
 
     // Start the first map
-    this.startMap(window.OverworldMaps(this.progress.mapId), initialHeroState);
+    this.startMap(window.OverworldMaps[this.progress.mapId], initialHeroState);
 
     // Create controls
     this.bindActionInput();
