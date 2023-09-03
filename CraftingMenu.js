@@ -11,7 +11,7 @@ class CraftingMenu {
         label: base.name,
         description: base.description,
         handler: () => {
-          // Create a way to add a pizza to player state
+          playerState.addPizza(pizzaId);
 
           this.close();
         },

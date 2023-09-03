@@ -40,6 +40,8 @@ class PlayerState {
     };
   }
 
+  addPizza(pizzaId) {}
+
   swapLineup(oldId, incomingId) {
     const oldIndex = this.lineup.indexOf(oldId);
     this.lineup[oldIndex] = incomingId;
