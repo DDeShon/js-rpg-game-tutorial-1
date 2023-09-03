@@ -264,5 +264,20 @@ window.OverworldMaps = {
         y: utils.withGrid(10),
       }),
     },
+    cutsceneSpaces: {
+      [utils.asGridCoord(29, 9)]: [
+        {
+          events: [
+            {
+              type: "changeMap",
+              map: "Kitchen",
+              x: utils.withGrid(5),
+              y: utils.withGrid(10),
+              direction: "up",
+            },
+          ],
+        },
+      ],
+    },
   },
 };
