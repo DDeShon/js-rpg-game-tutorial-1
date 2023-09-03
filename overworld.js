@@ -81,6 +81,8 @@ class Overworld {
   }
 
   init() {
+    this.progress = new Progress();
+
     this.hud = new Hud();
     this.hud.init(document.querySelector(".game-container"));
 
