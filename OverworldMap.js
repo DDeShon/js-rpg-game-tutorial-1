@@ -110,6 +110,7 @@ class OverworldMap {
 
 window.OverworldMaps = {
   DemoRoom: {
+    id: "DemoRoom",
     lowerSrc: "/images/maps/DemoLower.png",
     upperSrc: "/images/maps/DemoUpper.png",
     gameObjects: {
@@ -221,6 +222,7 @@ window.OverworldMaps = {
   },
 
   Kitchen: {
+    id: "Kitchen",
     lowerSrc: "/images/maps/KitchenLower.png",
     upperSrc: "/images/maps/KitchenUpper.png",
     gameObjects: {
@@ -247,6 +249,19 @@ window.OverworldMaps = {
         x: utils.withGrid(4),
         y: utils.withGrid(8),
         src: "/images/characters/people/npc3.png",
+      }),
+    },
+  },
+
+  Street: {
+    id: "Street",
+    lowerSrc: "/images/maps/StreetLower.png",
+    uppserSrc: "/images/maps/StreetUpper.png",
+    gameObjects: {
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(30),
+        y: utils.withGrid(10),
       }),
     },
   },
