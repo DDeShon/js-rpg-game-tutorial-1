@@ -251,6 +251,21 @@ window.OverworldMaps = {
         src: "/images/characters/people/npc3.png",
       }),
     },
+    cutsceneSpaces: {
+      [utils.asGridCoord(5, 10)]: [
+        {
+          events: [
+            {
+              type: "changeMap",
+              map: "Street",
+              x: utils.withGrid(29),
+              y: utils.withGrid(9),
+              direction: "down",
+            },
+          ],
+        },
+      ],
+    },
   },
 
   Street: {
