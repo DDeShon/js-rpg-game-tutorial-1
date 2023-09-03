@@ -256,7 +256,7 @@ window.OverworldMaps = {
   Street: {
     id: "Street",
     lowerSrc: "/images/maps/StreetLower.png",
-    uppserSrc: "/images/maps/StreetUpper.png",
+    upperSrc: "/images/maps/StreetUpper.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
