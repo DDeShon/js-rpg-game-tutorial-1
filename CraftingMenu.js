@@ -11,7 +11,7 @@ class CraftingMenu {
         label: base.name,
         description: base.description,
         handler: () => {
-          playerState.addPizza(pizzaId);
+          playerState.addPizza(id);
 
           this.close();
         },
