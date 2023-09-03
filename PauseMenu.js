@@ -25,7 +25,8 @@ class PauseMenu {
           label: "Save",
           description: "Save your progress",
           handler: () => {
-            // TODO:
+            this.progress.save();
+            this.close();
           },
         },
         {
