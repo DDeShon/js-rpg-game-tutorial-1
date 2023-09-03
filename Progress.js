@@ -1,0 +1,3 @@
+class Progress {
+  constructor() {}
+}
