@@ -3,6 +3,7 @@ class Person extends GameObject {
     super(config);
     this.movingProgressRemaining = 0;
     this.isStanding = false;
+    this.intentPosition = null; // [x,y]
 
     this.isPlayerControlled = config.isPlayerControlled || false;
 
@@ -12,15 +13,14 @@ class Person extends GameObject {
       left: ["x", -1],
       right: ["x", 1],
     };
+    this.standBehaviorTimeout;
   }
 
   update(state) {
     if (this.movingProgressRemaining > 0) {
       this.updatePosition();
     } else {
-      // More cases for starting to walk will be here
-
-      // Case: We're keyboard ready and have an arrow pressed
+      //We're keyboard ready and have an arrow pressed
       if (
         !state.map.isCutscenePlaying &&
         this.isPlayerControlled &&
@@ -36,30 +36,42 @@ class Person extends GameObject {
   }
 
   startBehavior(state, behavior) {
-    // Set character direction to behavior
+    if (!this.isMounted) {
+      return;
+    }
+
+    //Set character direction to whatever behavior has
     this.direction = behavior.direction;
 
     if (behavior.type === "walk") {
-      // Stop here if target space isn't free
+      //Stop here if space is not free
       if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
         behavior.retry &&
           setTimeout(() => {
             this.startBehavior(state, behavior);
           }, 10);
-
         return;
       }
 
-      // Begin walking
-      state.map.moveWall(this.x, this.y, this.direction);
+      //Ready to walk!
       this.movingProgressRemaining = 16;
+
+      //Add next position intent
+      const intentPosition = utils.nextPosition(this.x, this.y, this.direction);
+      this.intentPosition = [intentPosition.x, intentPosition.y];
+
       this.updateSprite(state);
     }
 
     if (behavior.type === "stand") {
       this.isStanding = true;
-      setTimeout(() => {
-        utils.emitEvent("PersonStandingComplete", {
+
+      if (this.standBehaviorTimeout) {
+        clearTimeout(this.standBehaviorTimeout);
+        console.log("xlear");
+      }
+      this.standBehaviorTimeout = setTimeout(() => {
+        utils.emitEvent("PersonStandComplete", {
           whoId: this.id,
         });
         this.isStanding = false;
@@ -73,7 +85,8 @@ class Person extends GameObject {
     this.movingProgressRemaining -= 1;
 
     if (this.movingProgressRemaining === 0) {
-      // Walking is finished
+      //We finished the walk!
+      this.intentPosition = null;
       utils.emitEvent("PersonWalkingComplete", {
         whoId: this.id,
       });
