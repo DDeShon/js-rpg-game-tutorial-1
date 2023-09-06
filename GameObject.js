@@ -35,7 +35,6 @@ class GameObject {
     }
 
     if (map.isCutscenePlaying) {
-      console.log("will retry", this.id);
       if (this.retryTimeout) {
         clearTimeout(this.retryTimeout);
       }

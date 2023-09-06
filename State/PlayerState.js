@@ -55,7 +55,6 @@ class PlayerState {
       this.lineup.push(newId);
     }
     utils.emitEvent("LineupChanged");
-    console.log(this);
   }
 
   swapLineup(oldId, incomingId) {
