@@ -125,6 +125,7 @@ window.OverworldMaps = {
         x: utils.withGrid(5),
         y: utils.withGrid(6),
       },
+
       npcA: {
         type: "Person",
         x: utils.withGrid(10),
@@ -168,22 +169,7 @@ window.OverworldMaps = {
           },
         ],
       },
-      npcC: {
-        type: "Person",
-        x: utils.withGrid(4),
-        y: utils.withGrid(8),
-        src: "/images/characters/people/npc1.png",
-        behaviorLoop: [
-          { type: "stand", direction: "left", time: 500 },
-          { type: "stand", direction: "down", time: 500 },
-          { type: "stand", direction: "right", time: 500 },
-          { type: "stand", direction: "up", time: 500 },
-          { type: "walk", direction: "left" },
-          { type: "walk", direction: "down" },
-          { type: "walk", direction: "right" },
-          { type: "walk", direction: "up" },
-        ],
-      },
+
       npcB: {
         type: "Person",
         x: utils.withGrid(8),
@@ -206,6 +192,24 @@ window.OverworldMaps = {
         //   { type: "walk",  direction: "down" },
         // ]
       },
+
+      npcC: {
+        type: "Person",
+        x: utils.withGrid(4),
+        y: utils.withGrid(8),
+        src: "/images/characters/people/npc1.png",
+        behaviorLoop: [
+          { type: "stand", direction: "left", time: 500 },
+          { type: "stand", direction: "down", time: 500 },
+          { type: "stand", direction: "right", time: 500 },
+          { type: "stand", direction: "up", time: 500 },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "up" },
+        ],
+      },
+
       pizzaStone: {
         type: "PizzaStone",
         x: utils.withGrid(2),
