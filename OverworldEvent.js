@@ -17,15 +17,14 @@ class OverworldEvent {
       }
     );
 
-    // Set up a handler to complete when correct person is done standing and resolve the event
+    //Set up a handler to complete when correct person is done walking, then resolve the event
     const completeHandler = (e) => {
       if (e.detail.whoId === this.event.who) {
-        document.removeEventListener("PersonStandingComplete", completeHandler);
+        document.removeEventListener("PersonStandComplete", completeHandler);
         resolve();
       }
     };
-
-    document.addEventListener("PersonStandingComplete", completeHandler);
+    document.addEventListener("PersonStandComplete", completeHandler);
   }
 
   walk(resolve) {
@@ -41,14 +40,13 @@ class OverworldEvent {
       }
     );
 
-    // Set up a handler to complete when correct person is done walking and resolve the event
+    //Set up a handler to complete when correct person is done walking, then resolve the event
     const completeHandler = (e) => {
       if (e.detail.whoId === this.event.who) {
         document.removeEventListener("PersonWalkingComplete", completeHandler);
         resolve();
       }
     };
-
     document.addEventListener("PersonWalkingComplete", completeHandler);
   }
 
@@ -59,6 +57,7 @@ class OverworldEvent {
         this.map.gameObjects["hero"].direction
       );
     }
+
     const message = new TextMessage({
       text: this.event.text,
       onComplete: () => resolve(),
@@ -67,6 +66,11 @@ class OverworldEvent {
   }
 
   changeMap(resolve) {
+    //Deactivate old objects
+    Object.values(this.map.gameObjects).forEach((obj) => {
+      obj.isMounted = false;
+    });
+
     const sceneTransition = new SceneTransition();
     sceneTransition.init(document.querySelector(".game-container"), () => {
       this.map.overworld.startMap(window.OverworldMaps[this.event.map], {
@@ -75,7 +79,6 @@ class OverworldEvent {
         direction: this.event.direction,
       });
       resolve();
-
       sceneTransition.fadeOut();
     });
   }
@@ -83,6 +86,7 @@ class OverworldEvent {
   battle(resolve) {
     const battle = new Battle({
       enemy: Enemies[this.event.enemyId],
+      arena: this.event.arena || null,
       onComplete: (didWin) => {
         resolve(didWin ? "WON_BATTLE" : "LOST_BATTLE");
       },
