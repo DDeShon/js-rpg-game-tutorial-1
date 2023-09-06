@@ -9,25 +9,18 @@ class SceneTransition {
 
   fadeOut() {
     this.element.classList.add("fade-out");
-    this.element.addEventListener(
-      "animationend",
-      () => {
-        this.element.remove();
-      },
-      { once: true }
-    );
+    this.element.addEventListener("animationend", () => {
+      this.element.remove();
+    }, { once: true })
   }
 
   init(container, callback) {
     this.createElement();
     container.appendChild(this.element);
 
-    this.element.addEventListener(
-      "animationend",
-      () => {
-        callback();
-      },
-      { once: true }
-    );
+    this.element.addEventListener("animationend", () => {
+      callback();
+    }, { once: true })
+
   }
 }

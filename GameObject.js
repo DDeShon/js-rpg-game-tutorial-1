@@ -23,26 +23,31 @@ class GameObject {
     //If we have a behavior, kick off after a short delay
     setTimeout(() => {
       this.doBehaviorEvent(map);
-    }, 10);
+    }, 10)
   }
 
-  update() {}
+  update() {
+  }
 
-  async doBehaviorEvent(map) {
+  async doBehaviorEvent(map) { 
+
     //Don't do anything if I don't have config to do anything
     if (this.behaviorLoop.length === 0) {
-      return;
+      return;  
     }
 
     if (map.isCutscenePlaying) {
+
+      console.log("will retry", this.id)
       if (this.retryTimeout) {
         clearTimeout(this.retryTimeout);
       }
       this.retryTimeout = setTimeout(() => {
         this.doBehaviorEvent(map);
-      }, 1000);
+      }, 1000)
       return;
     }
+
 
     //Setting up our event with relevant info
     let eventConfig = this.behaviorLoop[this.behaviorLoopIndex];
@@ -50,15 +55,19 @@ class GameObject {
 
     //Create an event instance out of our next event config
     const eventHandler = new OverworldEvent({ map, event: eventConfig });
-    await eventHandler.init();
+    await eventHandler.init(); 
 
     //Setting the next event to fire
     this.behaviorLoopIndex += 1;
     if (this.behaviorLoopIndex === this.behaviorLoop.length) {
       this.behaviorLoopIndex = 0;
-    }
+    } 
 
     //Do it again!
     this.doBehaviorEvent(map);
+    
+
   }
+
+
 }
