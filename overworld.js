@@ -54,6 +54,7 @@ class Overworld {
         this.gameLoopStepWork();
         delta -= step;
       }
+      previousMs = timestampMs - delta * 1000;
 
       // Business as usual tick
       requestAnimationFrame(stepFn);
