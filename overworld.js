@@ -49,8 +49,17 @@ class Overworld {
         previousMs = timestampMs;
       }
 
+      let delta = (timestampMs - previousMs) / 1000;
+      while (delta >= step) {
+        // DO THE WORK
+        delta -= step;
+      }
+
+      // Business as usual tick
       requestAnimationFrame(stepFn);
     };
+
+    // First kickoff tick
     requestAnimationFrame(stepFn);
   }
 
