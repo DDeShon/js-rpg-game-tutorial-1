@@ -38,14 +38,14 @@ class Overworld {
   }
 
   startGameLoop() {
-    const step = () => {
-      if (!this.map.isPaused) {
-        requestAnimationFrame(() => {
-          step();
-        });
+    const stepFn = () => {
+      if (this.map.isPaused) {
+        return;
       }
+
+      requestAnimationFrame(stepFn);
     };
-    step();
+    requestAnimationFrame(stepFn);
   }
 
   bindActionInput() {
