@@ -51,7 +51,7 @@ class Overworld {
 
       let delta = (timestampMs - previousMs) / 1000;
       while (delta >= step) {
-        // DO THE WORK
+        this.gameLoopStepWork();
         delta -= step;
       }
 
