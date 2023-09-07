@@ -38,9 +38,15 @@ class Overworld {
   }
 
   startGameLoop() {
-    const stepFn = () => {
+    let previousMs;
+    const step = 1 / 60;
+
+    const stepFn = (timestampMs) => {
       if (this.map.isPaused) {
         return;
+      }
+      if (previousMs === undefined) {
+        previousMs = timestampMs;
       }
 
       requestAnimationFrame(stepFn);
