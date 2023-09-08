@@ -6,7 +6,7 @@ class Overworld {
     this.map = null;
   }
 
-  gameLoopStepWork() {
+  gameLoopStepWork(delta) {
     //Clear off the canvas
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -16,6 +16,7 @@ class Overworld {
     //Update all objects
     Object.values(this.map.gameObjects).forEach((object) => {
       object.update({
+        delta,
         arrow: this.directionInput.direction,
         map: this.map,
       });
@@ -51,7 +52,7 @@ class Overworld {
 
       let delta = (timestampMs - previousMs) / 1000;
       while (delta >= step) {
-        this.gameLoopStepWork();
+        this.gameLoopStepWork(delta);
         delta -= step;
       }
       previousMs = timestampMs - delta * 1000;
